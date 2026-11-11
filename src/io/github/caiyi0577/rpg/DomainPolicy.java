@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 import java.net.URI;
 import java.util.Locale;
 public final class DomainPolicy {

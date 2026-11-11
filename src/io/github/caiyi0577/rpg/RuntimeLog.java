@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 import android.os.Process;
 import java.io.BufferedReader;
 import java.io.FileReader;

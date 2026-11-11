@@ -86,7 +86,7 @@ def main():
     with zipfile.ZipFile(output / 'classes.jar', 'w', zipfile.ZIP_DEFLATED) as jar:
         for source in sorted((output / 'classes').rglob('*.class')):
             name = source.relative_to(output / 'classes').as_posix()
-            if not name.startswith('com/caiyi/rpg/'):
+            if not name.startswith('io/github/caiyi0577/rpg/'):
                 raise RuntimeError('Unexpected packaged class: ' + name)
             jar.write(source, name)
     print('Generating DEX and aligning APK', flush=True)

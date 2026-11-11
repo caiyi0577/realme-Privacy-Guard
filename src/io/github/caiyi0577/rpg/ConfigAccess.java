@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 
 public final class ConfigAccess {
     public static boolean allowed(int callingUid,int ownUid,String[] packages) {

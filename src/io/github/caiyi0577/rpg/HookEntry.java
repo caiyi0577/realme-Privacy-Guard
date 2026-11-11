@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 
 import android.app.Application;
 import android.content.Context;
@@ -8,9 +8,9 @@ import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
-import com.caiyi.rpg.hooks.BusinessHooks;
-import com.caiyi.rpg.hooks.FrameworkHooks;
-import com.caiyi.rpg.hooks.NetworkHooks;
+import io.github.caiyi0577.rpg.hooks.BusinessHooks;
+import io.github.caiyi0577.rpg.hooks.FrameworkHooks;
+import io.github.caiyi0577.rpg.hooks.NetworkHooks;
 
 public final class HookEntry implements IXposedHookLoadPackage {
     public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lp) {

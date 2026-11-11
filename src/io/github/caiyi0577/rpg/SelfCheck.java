@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 
 import android.content.Context;
 import android.database.Cursor;

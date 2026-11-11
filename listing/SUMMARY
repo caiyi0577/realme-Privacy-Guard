@@ -1,0 +1,3 @@
+真我 / OPPO 部分预置组件的隐私保护模块：限制已确认的采集接口和上报入口，提供阻断、阻断失败、未阻断及未运行四类自检状态。针对已审计固件适配。
+
+Privacy protection for selected realme / OPPO components. Blocks identified collection/reporting entry points and provides four diagnostic states. Firmware-specific compatibility applies.

@@ -1,7 +1,7 @@
-package com.caiyi.rpg.hooks;
+package io.github.caiyi0577.rpg.hooks;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import com.caiyi.rpg.RuntimeLog;
+import io.github.caiyi0577.rpg.RuntimeLog;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 public final class HookUtil {

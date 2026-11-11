@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [main]
+    branches: [main, lsposed-release]
   pull_request:
   workflow_dispatch:
 
@@ -42,6 +42,8 @@ jobs:
           packages: 'platform-tools platforms;android-34 build-tools;34.0.0'
       - name: Compile and run checks
         run: python build.py --unsigned --out build/ci
+      - name: Verify signed publication APK
+        run: python tools/verify_public_apk.py --unsigned build/ci/realme-privacy-guard-1.2.0-unsigned.apk
       - name: Upload unsigned verification APK and results
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
@@ -53,3 +55,21 @@ jobs:
             build/ci/manifest.txt
           if-no-files-found: error
           retention-days: 14
+
+  publish:
+    name: Publish signed APK
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/lsposed-release' && github.repository == 'caiyi0577/realme-Privacy-Guard'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Check out verified release source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Publish already signed APK
+        run: python3 tools/publish_release.py
+        env:
+          RELEASE_TOKEN: ${{ github.token }}

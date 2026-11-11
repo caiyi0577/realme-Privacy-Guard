@@ -1,10 +1,10 @@
-import com.caiyi.rpg.DomainPolicy;
-import com.caiyi.rpg.Prefs;
-import com.caiyi.rpg.TargetCatalog;
-import com.caiyi.rpg.ProcessIdentity;
-import com.caiyi.rpg.LogLedger;
-import com.caiyi.rpg.ConfigAccess;
-import com.caiyi.rpg.BlockStatus;
+import io.github.caiyi0577.rpg.DomainPolicy;
+import io.github.caiyi0577.rpg.Prefs;
+import io.github.caiyi0577.rpg.TargetCatalog;
+import io.github.caiyi0577.rpg.ProcessIdentity;
+import io.github.caiyi0577.rpg.LogLedger;
+import io.github.caiyi0577.rpg.ConfigAccess;
+import io.github.caiyi0577.rpg.BlockStatus;
 
 public final class PolicyTest {
     private static int checks;

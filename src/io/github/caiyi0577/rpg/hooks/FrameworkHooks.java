@@ -1,4 +1,4 @@
-package com.caiyi.rpg.hooks;
+package io.github.caiyi0577.rpg.hooks;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -6,9 +6,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.location.Location;
 import android.os.CancellationSignal;
-import com.caiyi.rpg.Prefs;
-import com.caiyi.rpg.RuntimeLog;
-import com.caiyi.rpg.TargetCatalog;
+import io.github.caiyi0577.rpg.Prefs;
+import io.github.caiyi0577.rpg.RuntimeLog;
+import io.github.caiyi0577.rpg.TargetCatalog;
 import de.robv.android.xposed.XC_MethodHook;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

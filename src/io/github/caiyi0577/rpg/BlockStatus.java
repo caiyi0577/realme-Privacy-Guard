@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 
 /** Distinguishes installed blocking protection, observed hits, and stopped processes. */
 public final class BlockStatus {

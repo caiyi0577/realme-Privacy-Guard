@@ -1,10 +1,10 @@
-package com.caiyi.rpg.hooks;
+package io.github.caiyi0577.rpg.hooks;
 
 import android.content.pm.ApplicationInfo;
 import java.io.File;
-import com.caiyi.rpg.Prefs;
-import com.caiyi.rpg.RuntimeLog;
-import com.caiyi.rpg.TargetCatalog;
+import io.github.caiyi0577.rpg.Prefs;
+import io.github.caiyi0577.rpg.RuntimeLog;
+import io.github.caiyi0577.rpg.TargetCatalog;
 import de.robv.android.xposed.XC_MethodHook;
 
 public final class BusinessHooks {

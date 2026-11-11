@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 
 import java.util.HashMap;
 import java.util.HashSet;

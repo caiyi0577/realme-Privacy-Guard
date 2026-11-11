@@ -1,9 +1,9 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 import java.util.Arrays;
 public final class TargetCatalog {
-    public static final String VERSION = "1.1.5";
-    // Display-only releases share the same hook revision; keep validating PID and start identity.
-    public static final String HOOK_VERSION = "1.1.2";
+    public static final String VERSION = "1.2.0";
+    // Separate package and hook revision for the public LSPosed distribution.
+    public static final String HOOK_VERSION = "1.2.0";
     public static final String UMS = "com.oplus.pantanal.ums", ADS = "com.opos.ads", OLC = "com.oplus.olc";
     public static final String[] PACKAGES = {
         "com.mobiletools.systemhelper", "com.coloros.regservice", "com.oppo.ctautoregist",

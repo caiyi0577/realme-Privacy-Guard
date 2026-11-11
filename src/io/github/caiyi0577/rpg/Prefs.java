@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 import org.json.JSONObject;
 
 public final class Prefs {
-    public static final String PKG="com.caiyi.rpg", AUTHORITY=PKG+".config";
+    public static final String PKG="io.github.caiyi0577.rpg", AUTHORITY=PKG+".config";
     public static final String[] KEYS={"carrier","ai","applist","sample","telemetry","net","ums_upload","ads","olc_upload"};
     private static final String MIGRATED="settings_migrated_v3";
     public boolean carrier=true, ai=true, appList=true, sample=true, telemetry=true, net=true;

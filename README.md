@@ -4,9 +4,17 @@
 
 [中文](#中文) · [English](#english)
 
+> **LSPosed 上架版 / Public distribution** — `io.github.caiyi0577.rpg`
+>
+> 旧包 `com.caiyi.rpg` 的源码保留在 [main 分支](https://github.com/caiyi0577/realme-Privacy-Guard/tree/main)。本版是独立应用，不能覆盖原包。请勿同时启用两个版本。
+>
+> The legacy `com.caiyi.rpg` source remains on the main branch. This is a separate app and cannot update it in place. Do not enable both modules at once.
+
 ## 中文
 
-面向 realme / OPPO 部分预置组件的 LSPosed 模块，通过 Java Hook 限制已确认的采集接口和上报入口。当前版本 **1.1.5**，包名 `com.caiyi.rpg`。
+**独立上架包 `io.github.caiyi0577.rpg`，不能覆盖旧包 `com.caiyi.rpg`。原版配置和作用域不会自动继承。请先停用旧模块，再启用本模块，避免双重 Hook。手机现有模块未被本次发布操作修改。新包已通过构建与规则测试，尚未在手机启用验证。**
+
+面向 realme / OPPO 部分预置组件的 LSPosed 模块，通过 Java Hook 限制已确认的采集接口和上报入口。当前版本 **1.2.0**，包名 `io.github.caiyi0577.rpg`。
 
 本项目由 realme GT8 Pro（RMX5200）的单机排查与适配发展而来，已核对的系统为 Android 17 / API 37、`RMX5200_17.0.0.106(CN01)`。**不保证适用于其他机型、其他固件或更新后的系统组件。** 应用界面目前为中文。
 
@@ -34,7 +42,7 @@
 4. 首次安装或修改拦截规则后，重启目标进程或手机；开关变化同样在目标进程下次加载时生效。
 5. 打开模块并运行自检。读取系统状态和模块记录的自检需要给本模块 root 授权。
 
-1.1.3–1.1.5 仅更新自检与显示，沿用 1.1.2 的拦截规则版本；已加载同一规则版本的进程，无需为了界面更新再次软重启。
+本版使用独立包名和规则版本 1.2.0。首次启用时需要让目标进程重新加载；不会沿用旧包的 Hook 记录。
 
 <details>
 <summary>全部 17 个推荐作用域 / All 17 recommended scope packages</summary>
@@ -74,9 +82,9 @@ com.oplus.olc
 
 ### 自动编译与下载
 
-推送到 `main`、提交 PR 或手动运行 **Actions → Build**，会在 Linux 和 Windows 上编译并运行 50 项规则与诊断检查。成功后下载 `realme-privacy-guard-unsigned-*` 构建产物，内含 APK、校验信息和测试结果。
+推送到 `lsposed-release`、提交 PR 或手动运行 **Actions → Build**，会在 Linux 和 Windows 上编译并运行 50 项规则与诊断检查。成功后下载 `realme-privacy-guard-unsigned-*` 构建产物，内含 APK、校验信息和测试结果。
 
-**CI 产物是未签名的验证 APK，不能直接安装，也不能直接覆盖手机上的签名版本。** 当前流程不使用或上传签名私钥，不自动发布 Release。需要可安装版本时，使用原签名在本地构建。不要卸载原版来绕过签名不匹配，否则会丢失原配置。
+**CI 产物是未签名的验证 APK，不能直接安装，也不能直接覆盖手机上的签名版本。** 签名私钥保持在本地。该分支在两套编译通过后，将已经在本地签好的 APK 发布到 GitHub Releases；云端验证 APK 仍是未签名产物。不要卸载原版来绕过签名不匹配，否则会丢失原配置。
 
 ### 本地构建
 
@@ -109,13 +117,15 @@ python build.py --signing-config /path/outside/repository/signing.json
 
 设置保存在应用私有的设备加密存储，通过受限只读 ContentProvider 向目标 UID 提供九个布尔开关。共享同一系统 UID 的组件共用该访问边界。模块不申请联网权限，不再使用已弃用的 New XSharedPreferences 扩展；这不等于已迁移到 Modern Xposed API。
 
-从早期 New XSharedPreferences 版本升级，需要先迁移旧配置；源码支持读取本模块私有目录中的 `rpg_settings_migration.json`。从 1.1.1 及以后的私有配置版本覆盖更新会保留开关。
+本版与旧包 `com.caiyi.rpg` 的应用数据和 LSPosed 作用域相互独立，首次安装后请重新确认开关和作用域。先停用旧模块，再启用本模块；后续本包的同签名更新会保留自身配置。本次发布不自动修改手机现有模块。
 
 SystemHelper 与智慧推荐的混淆入口带有针对已审计 APK 大小的兼容性检查；大小不是可信度证明。系统组件更新后应重新核对。云端测试不替代真机验证，设备日志、提取的系统 APK、签名密钥均不随仓库发布。
 
 ## English
 
-Realme Privacy Guard is an LSPosed module for selected preinstalled realme / OPPO components. It uses Java hooks to restrict identified collection APIs and reporting entry points. Current version: **1.1.5**. Package: `com.caiyi.rpg`.
+**This is the separate `io.github.caiyi0577.rpg` distribution. It cannot update `com.caiyi.rpg` in place or automatically inherit its settings/scope. Disable the legacy module before enabling this one. Publishing does not modify the existing phone installation. This package passed build/policy checks but has not yet been activated on a device.**
+
+Realme Privacy Guard is an LSPosed module for selected preinstalled realme / OPPO components. It uses Java hooks to restrict identified collection APIs and reporting entry points. Current version: **1.2.0**. Package: `io.github.caiyi0577.rpg`.
 
 The project grew out of an audit and adaptation for one realme GT8 Pro (RMX5200), running Android 17 / API 37, build `RMX5200_17.0.0.106(CN01)`. **Compatibility with other devices, firmware versions, or updated system components is not guaranteed.** The app UI is currently Chinese.
 
@@ -143,7 +153,7 @@ The module does not alter the real boot state. Java network hooks do not cover a
 4. Restart target processes or the phone after initial installation or hook changes. Switch changes apply when target processes next load the module.
 5. Open the app and run the self-check. Grant root to the module for reading system state and module diagnostics.
 
-Versions 1.1.3–1.1.5 update diagnostics and presentation while retaining hook revision 1.1.2. Processes already running that hook revision do not need another soft reboot solely for the display update.
+This distribution uses a separate package and hook revision 1.2.0. Restart target processes after first activation. Legacy-package hook records are not treated as evidence for this module.
 
 ### Self-check states
 
@@ -158,9 +168,9 @@ Diagnostics match the current PID, process start identity, and compatible hook r
 
 ### CI builds
 
-Pushes to `main`, pull requests, and **Actions → Build → Run workflow** compile the project on Linux and Windows and run 50 policy/diagnostic checks. Download a `realme-privacy-guard-unsigned-*` artifact from a successful run for the APK, build hashes, and test results.
+Pushes to `lsposed-release`, pull requests, and **Actions → Build → Run workflow** compile the project on Linux and Windows and run 50 policy/diagnostic checks. Download a `realme-privacy-guard-unsigned-*` artifact from a successful run for the APK, build hashes, and test results.
 
-**CI produces an unsigned verification APK. It is not directly installable and cannot directly replace an installed signed APK.** The workflow does not use/upload signing private keys or publish releases. Build locally with the original signing identity for an installable update; do not uninstall the existing app to bypass a certificate mismatch and lose its configuration.
+**CI produces an unsigned verification APK. It is not directly installable and cannot directly replace an installed signed APK.** Signing private keys remain local. After both builds pass, this branch publishes the already signed APK to GitHub Releases. CI verification APKs remain unsigned. Build locally with the original signing identity for later installable updates; do not uninstall the existing app to bypass a certificate mismatch and lose its configuration.
 
 ### Local builds
 
@@ -184,7 +194,7 @@ The optional `expected_certificate_sha256` field enforces a particular signing c
 
 The nine boolean settings are kept in private device-protected storage and exposed to authorized target UIDs through a restricted read-only ContentProvider. Components sharing a system UID share that authorization boundary. The module requests no Internet permission and no longer uses the deprecated New XSharedPreferences extension; it still uses the classic hooking API, not the Modern Xposed API.
 
-Upgrades from early New XSharedPreferences builds need their old settings migrated first. The module can import its own private `rpg_settings_migration.json` file. In-place updates from version 1.1.1 onward retain the private settings.
+App data and LSPosed scope are separate from the legacy `com.caiyi.rpg` package. Recheck the switches and scope after initial installation, disable the old module, and then enable this one. Future same-package, same-certificate updates retain their settings. Publishing this release does not modify the existing module on the phone.
 
 Obfuscated SystemHelper and ad-adapter hooks use audited APK sizes as compatibility guards, not authenticity checks. Re-audit after system-component updates. CI checks do not replace device validation. Device logs, extracted system APKs, and signing materials are not published in this repository.
 

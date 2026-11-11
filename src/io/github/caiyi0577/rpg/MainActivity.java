@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -26,7 +26,8 @@ public final class MainActivity extends Activity {
             if(!prefs.contains(key))defaults.putBoolean(key,true);
         defaults.putInt("ui_version",3).commit();
         text("真我隐私卫士",24,true);
-        text(TargetCatalog.VERSION+" · LSPosed 模块",14,false);
+        text(TargetCatalog.VERSION+" · LSPosed 上架版",14,false);
+        text("独立包：io.github.caiyi0577.rpg。启用前请先停用旧版模块，避免两个版本同时 Hook。",13,false);
         text("设置使用私有存储和受限只读接口，不再使用已弃用的共享配置功能。",13,false);
         text("升级后需让目标进程重新加载。新增作用域：智慧建议、智慧推荐、日志服务。RegService 保持禁用即可。",14,false);
         text("新增保护",19,true);

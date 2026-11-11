@@ -1,0 +1,9 @@
+{
+  "application_id": "io.github.caiyi0577.rpg",
+  "version": "1.2.0",
+  "version_code": 8,
+  "tag": "8-1.2.0",
+  "apk": "release-assets/realme-privacy-guard-1.2.0.apk",
+  "sha256": "0721d27cbad3ddd32db447a07f42cd853a627d6d6f24349285ffd51c7880688a",
+  "certificate_sha256": "f2c92b2c35b68068a4fe78cd4a0a6a05696999e16e3dfb172077a38238c7fda5"
+}

@@ -1,4 +1,4 @@
-package com.caiyi.rpg;
+package io.github.caiyi0577.rpg;
 public final class ProcessIdentity {
     public static String startTicks(String stat) {
         int end = stat.lastIndexOf(')');
