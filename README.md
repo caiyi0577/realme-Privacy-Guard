@@ -1,43 +1,43 @@
-# Realme Privacy Guard / ������˽��ʿ
+# Realme Privacy Guard / 真我隐私卫士
 
 [![Build](https://github.com/caiyi0577/realme-Privacy-Guard/actions/workflows/build.yml/badge.svg)](https://github.com/caiyi0577/realme-Privacy-Guard/actions/workflows/build.yml)
 
-[����](#����) �� [English](#english)
+[中文](#中文) · [English](#english)
 
-## ����
+## 中文
 
-���� realme / OPPO ����Ԥ������� LSPosed ģ�飬ͨ�� Java Hook ������ȷ�ϵĲɼ��ӿں��ϱ���ڡ���ǰ�汾 **1.1.5**������ `com.caiyi.rpg`��
+面向 realme / OPPO 部分预置组件的 LSPosed 模块，通过 Java Hook 限制已确认的采集接口和上报入口。当前版本 **1.1.5**，包名 `com.caiyi.rpg`。
 
-����Ŀ�� realme GT8 Pro��RMX5200���ĵ����Ų������䷢չ�������Ѻ˶Ե�ϵͳΪ Android 17 / API 37��`RMX5200_17.0.0.106(CN01)`��**����֤�������������͡������̼�����º��ϵͳ�����** Ӧ�ý���ĿǰΪ���ġ�
+本项目由 realme GT8 Pro（RMX5200）的单机排查与适配发展而来，已核对的系统为 Android 17 / API 37、`RMX5200_17.0.0.106(CN01)`。**不保证适用于其他机型、其他固件或更新后的系统组件。** 应用界面目前为中文。
 
-### ��������
+### 保护内容
 
-| ���� | ���� | ����Ӱ�� |
+| 开关 | 作用 | 可能影响 |
 | --- | --- | --- |
-| �ǻ۽����ⷢ���� | ������ȷ�ϵ�λ��/Wi-Fi �ϴ�������ģ���ϴ���λ��ͳ���¼� | �ƶ�ѧϰ�����ֽ��� |
-| ������Ƽ����󱣻� | ��������ư汾�Ĺ����������������֪�˵� | ��桢�Ƽ����� |
-| ��־�ϴ����񱣻� | ����������־�ϴ����������񣬱���������־���� | ��ϱ����ϴ� |
-| �豸��ʶ��λ�� | �����豸/SIM/��վ��Ϣ����λ���� SystemHelper ע����� | ������λ����Ӫ������ |
-| ¼��������ʹ�ü�¼ | ����ԭ��Ŀ���¼��������ʹ�ü�¼�����ϰ��б�ö�� | �����Ƶ��ͳ�ƹ��� |
-| Ӧ���б����� | �ɼ���Ŀ�귵�ؿ��б���������Ŀ�������ϵͳӦ�� | Ӧ��ɨ�� |
-| ��װ��Ԫ��Ϣ | ���ư�װ��Ԫ��Ϣ����װ��Դ��ѯ | ��װ��Դʶ�� |
-| �豸״̬����ֵ | ����Ŀ������ڵľɰ��豸״̬αװ | ���ּ���߼� |
-| ��֪�ϱ��˵㱣�� | �� Java DNS / URL ����ǰ������֪�˵� | ��Ӧ�������� |
+| 智慧建议外发保护 | 拦截已确认的位置/Wi-Fi 上传、短信模型上传及位置统计事件 | 云端学习、部分建议 |
+| 广告与推荐请求保护 | 拦截已审计版本的广告网络适配器和已知端点 | 广告、推荐更新 |
+| 日志上传任务保护 | 拦截三类日志上传及重试任务，保留本地日志服务 | 诊断报告上传 |
+| 设备标识与位置 | 过滤设备/SIM/基站信息、定位请求及 SystemHelper 注册入口 | 天气定位、运营商配置 |
+| 录音启动与使用记录 | 限制原有目标的录音启动、使用记录和无障碍列表枚举 | 相关音频和统计功能 |
+| 应用列表过滤 | 采集型目标返回空列表，功能型目标仅返回系统应用 | 应用扫描 |
+| 安装包元信息 | 限制安装包元信息及安装来源查询 | 安装来源识别 |
+| 设备状态返回值 | 保留目标进程内的旧版设备状态伪装 | 部分检测逻辑 |
+| 已知上报端点保护 | 在 Java DNS / URL 建连前拦截已知端点 | 对应网络请求 |
 
-���򲻻������ʵ����״̬��Java �������ز���������ԭ�����磬Ҳ����֤��ֹ��Ȩ�����������з����ϴ��߼���������֤����Ӧ�����ѷ��͵���������
+规则不会更改真实引导状态；Java 网络拦截不覆盖所有原生网络，也不保证阻止特权截屏。代码中发现上传逻辑，不等于证明对应内容已发送到服务器。
 
-### ��װ������
+### 安装与启用
 
-1. ׼���Ѱ�װ���� LSPosed ���豸���Լ�**ʹ����ȷǩ���� APK**��ģ����� Android �汾Ϊ 10��API 29����ʹ�þ��� Xposed Java API 82��
-2. ��װ APK���� LSPosed ������ģ�飬ѡ����Ҫ�������Ƽ�������
-3. �����ص�������Ϊ **�ǻ۽���** `com.oplus.pantanal.ums`��**�ǻ��Ƽ�** `com.opos.ads`��**��־����** `com.oplus.olc`���ѽ��õ� RegService �������ֽ��á�
-4. �״ΰ�װ���޸����ع��������Ŀ����̻��ֻ������ر仯ͬ����Ŀ������´μ���ʱ��Ч��
-5. ��ģ�鲢�����Լ졣��ȡϵͳ״̬��ģ���¼���Լ���Ҫ����ģ�� root ��Ȩ��
+1. 准备已安装兼容 LSPosed 的设备，以及**使用正确签名的 APK**。模块最低 Android 版本为 10（API 29），使用经典 Xposed Java API 82。
+2. 安装 APK，在 LSPosed 中启用模块，选择需要保护的推荐作用域。
+3. 新增重点作用域为 **智慧建议** `com.oplus.pantanal.ums`、**智慧推荐** `com.opos.ads`、**日志服务** `com.oplus.olc`。已禁用的 RegService 继续保持禁用。
+4. 首次安装或修改拦截规则后，重启目标进程或手机；开关变化同样在目标进程下次加载时生效。
+5. 打开模块并运行自检。读取系统状态和模块记录的自检需要给本模块 root 授权。
 
-1.1.3�C1.1.5 �������Լ�����ʾ������ 1.1.2 �����ع���汾���Ѽ���ͬһ����汾�Ľ��̣�����Ϊ�˽�������ٴ���������
+1.1.3–1.1.5 仅更新自检与显示，沿用 1.1.2 的拦截规则版本；已加载同一规则版本的进程，无需为了界面更新再次软重启。
 
 <details>
-<summary>ȫ�� 17 ���Ƽ������� / All 17 recommended scope packages</summary>
+<summary>全部 17 个推荐作用域 / All 17 recommended scope packages</summary>
 
 ```text
 com.mobiletools.systemhelper
@@ -61,34 +61,34 @@ com.oplus.olc
 
 </details>
 
-### �Լ�״̬
+### 自检状态
 
-| ״̬ | ���� |
+| 状态 | 含义 |
 | --- | --- |
-| **���** | ���ع����Ѱ�װ����������ʵ�����м�¼��������ѽ��á��Ƿ񴥷����ϱ������д�������˵���� |
-| **���ʧ�ܣ���ɫ���壩** | Hook ��װ����ʼ����������ؼ����ع���ȱʧ��ͬʱ��ʾ����ԭ�򡣲��ֹ�����������ʱҲ��ע���� |
-| **δ���** | ģ��δ���á�������δ��ѡ��������Ч����֤�ݻ�װ״̬δ֪�ȡ�û�����м�¼���ᵥ����ɴ�״̬�� |
-| **δ����** | ���ο�����δ���ָ���������н��̣�������������֤�� |
+| **阻断** | 拦截规则已安装就绪、已有实际命中记录，或组件已禁用。是否触发过上报由命中次数单独说明。 |
+| **阻断失败（红色粗体）** | Hook 安装、初始化报错，或关键拦截规则缺失；同时显示具体原因。部分规则仍有拦截时也会注明。 |
+| **未阻断** | 模块未启用、作用域未勾选、尚无有效加载证据或安装状态未知等。没有命中记录不会单独造成此状态。 |
+| **未运行** | 本次快照中未发现该组件的运行进程，待启动后再验证。 |
 
-�Լ�˶Ե�ǰ PID��������ʶ�����ݹ���汾���ֱ�����ʼ����������м�¼������̸��ǲ��������ӿ�������Ĭ�����õ����������ʾ������ϡ�����������ͨ·�������ǣ�Ҳ��֤���������Ƿ��յ����ݡ�������־�� 1��64��128����������ʾ�����Ѽ�¼�������ޡ�
+自检核对当前 PID、启动标识及兼容规则版本，分别保留初始化与近期命中记录。多进程覆盖不完整、接口跳过、默认配置等情况继续提示；“阻断”不代表所有通路都被覆盖，也不证明服务器是否收到数据。命中日志按 1、64、128…采样，显示的是已记录次数下限。
 
-### �Զ�����������
+### 自动编译与下载
 
-���͵� `main`���ύ PR ���ֶ����� **Actions �� Build**������ Linux �� Windows �ϱ��벢���� 50 ���������ϼ�顣�ɹ������� `realme-privacy-guard-unsigned-*` ��������ں� APK��У����Ϣ�Ͳ��Խ����
+推送到 `main`、提交 PR 或手动运行 **Actions → Build**，会在 Linux 和 Windows 上编译并运行 50 项规则与诊断检查。成功后下载 `realme-privacy-guard-unsigned-*` 构建产物，内含 APK、校验信息和测试结果。
 
-**CI ������δǩ������֤ APK������ֱ�Ӱ�װ��Ҳ����ֱ�Ӹ����ֻ��ϵ�ǩ���汾��** ��ǰ���̲�ʹ�û��ϴ�ǩ��˽Կ�����Զ����� Release����Ҫ�ɰ�װ�汾ʱ��ʹ��ԭǩ���ڱ��ع�������Ҫж��ԭ�����ƹ�ǩ����ƥ�䣬����ᶪʧԭ���á�
+**CI 产物是未签名的验证 APK，不能直接安装，也不能直接覆盖手机上的签名版本。** 当前流程不使用或上传签名私钥，不自动发布 Release。需要可安装版本时，使用原签名在本地构建。不要卸载原版来绕过签名不匹配，否则会丢失原配置。
 
-### ���ع���
+### 本地构建
 
-��Ҫ Python 3.10+��JDK 17���Լ� Android SDK `platforms;android-34`��`build-tools;34.0.0`������ `JAVA_HOME` �� `ANDROID_SDK_ROOT`���� `ANDROID_HOME`����Windows �� Linux ʹ��ͬһ���
+需要 Python 3.10+、JDK 17，以及 Android SDK `platforms;android-34`、`build-tools;34.0.0`。设置 `JAVA_HOME` 和 `ANDROID_SDK_ROOT`（或 `ANDROID_HOME`）。Windows 和 Linux 使用同一命令：
 
 ```sh
 python build.py --unsigned
 ```
 
-�������� Xposed API 82 ��� `dependencies.json` ָ���ľ������ز�У��̶� SHA-256�������ڱ��룬������� APK�����λ�� `build/����ʱ��/`������Ҫ Gradle �� Android Studio��
+编译依赖 Xposed API 82 会从 `dependencies.json` 指定的镜像下载并校验固定 SHA-256，仅用于编译，不打包进 APK。输出位于 `build/日期时间/`。不需要 Gradle 或 Android Studio。
 
-����ǩ��ʱ�������� JSON ������**�ֿ�֮��**�����ö�Ӧ���뻷��������ִ�У�
+本地签名时，将以下 JSON 保存在**仓库之外**，设置对应密码环境变量后执行：
 
 ```json
 {
@@ -103,15 +103,15 @@ python build.py --unsigned
 python build.py --signing-config /path/outside/repository/signing.json
 ```
 
-������ `expected_certificate_sha256` �ֶΣ�Ҫ��ǩ��֤����ָ��ָ��һ�¡���Կ�������ǩ�����ò�Ӧ�ύ���ֿ⡣
+可增加 `expected_certificate_sha256` 字段，要求签名证书与指定指纹一致。密钥、密码和签名配置不应提交到仓库。
 
-### �����������
+### 配置与兼容性
 
-���ñ�����Ӧ��˽�е��豸���ܴ洢��ͨ������ֻ�� ContentProvider ��Ŀ�� UID �ṩ�Ÿ��������ء�����ͬһϵͳ UID ��������ø÷��ʱ߽硣ģ�鲻��������Ȩ�ޣ�����ʹ�������õ� New XSharedPreferences ��չ���ⲻ������Ǩ�Ƶ� Modern Xposed API��
+设置保存在应用私有的设备加密存储，通过受限只读 ContentProvider 向目标 UID 提供九个布尔开关。共享同一系统 UID 的组件共用该访问边界。模块不申请联网权限，不再使用已弃用的 New XSharedPreferences 扩展；这不等于已迁移到 Modern Xposed API。
 
-������ New XSharedPreferences �汾��������Ҫ��Ǩ�ƾ����ã�Դ��֧�ֶ�ȡ��ģ��˽��Ŀ¼�е� `rpg_settings_migration.json`���� 1.1.1 ���Ժ��˽�����ð汾���Ǹ��»ᱣ�����ء�
+从早期 New XSharedPreferences 版本升级，需要先迁移旧配置；源码支持读取本模块私有目录中的 `rpg_settings_migration.json`。从 1.1.1 及以后的私有配置版本覆盖更新会保留开关。
 
-SystemHelper ���ǻ��Ƽ��Ļ�����ڴ����������� APK ��С�ļ����Լ�飻��С���ǿ��Ŷ�֤����ϵͳ������º�Ӧ���º˶ԡ��ƶ˲��Բ���������֤���豸��־����ȡ��ϵͳ APK��ǩ����Կ������ֿⷢ����
+SystemHelper 与智慧推荐的混淆入口带有针对已审计 APK 大小的兼容性检查；大小不是可信度证明。系统组件更新后应重新核对。云端测试不替代真机验证，设备日志、提取的系统 APK、签名密钥均不随仓库发布。
 
 ## English
 
@@ -143,22 +143,22 @@ The module does not alter the real boot state. Java network hooks do not cover a
 4. Restart target processes or the phone after initial installation or hook changes. Switch changes apply when target processes next load the module.
 5. Open the app and run the self-check. Grant root to the module for reading system state and module diagnostics.
 
-Versions 1.1.3�C1.1.5 update diagnostics and presentation while retaining hook revision 1.1.2. Processes already running that hook revision do not need another soft reboot solely for the display update.
+Versions 1.1.3–1.1.5 update diagnostics and presentation while retaining hook revision 1.1.2. Processes already running that hook revision do not need another soft reboot solely for the display update.
 
 ### Self-check states
 
 | App label | Meaning |
 | --- | --- |
-| **��� �� Blocking** | Blocking hooks are installed and ready, actual hits have been recorded, or the component is disabled. Hit counts separately show whether a rule has been triggered. |
-| **���ʧ�� �� Blocking failed** | Hook installation/initialization failed or required rules are missing. The status line and nonzero failure total are shown in **red and bold**, with a reason. Working rules in other processes remain documented. |
-| **δ��� �� Not blocking** | The module/scope is disabled, valid loading evidence is missing, or installation state is unknown. Zero hits alone does not cause this state. |
-| **δ���� �� Not running** | No running process for the component was found in the current snapshot. Check again after it starts. |
+| **阻断 — Blocking** | Blocking hooks are installed and ready, actual hits have been recorded, or the component is disabled. Hit counts separately show whether a rule has been triggered. |
+| **阻断失败 — Blocking failed** | Hook installation/initialization failed or required rules are missing. The status line and nonzero failure total are shown in **red and bold**, with a reason. Working rules in other processes remain documented. |
+| **未阻断 — Not blocking** | The module/scope is disabled, valid loading evidence is missing, or installation state is unknown. Zero hits alone does not cause this state. |
+| **未运行 — Not running** | No running process for the component was found in the current snapshot. Check again after it starts. |
 
-Diagnostics match the current PID, process start identity, and compatible hook revision. Initialization records and recent hits are retained separately. Partial process coverage, skipped interfaces, and default-settings fallbacks remain visible. ��Blocking�� is not a claim that every data path is covered or that a server received nothing. Hit logs are sampled at 1, 64, 128, ��; displayed totals are observed lower bounds.
+Diagnostics match the current PID, process start identity, and compatible hook revision. Initialization records and recent hits are retained separately. Partial process coverage, skipped interfaces, and default-settings fallbacks remain visible. “Blocking” is not a claim that every data path is covered or that a server received nothing. Hit logs are sampled at 1, 64, 128, …; displayed totals are observed lower bounds.
 
 ### CI builds
 
-Pushes to `main`, pull requests, and **Actions �� Build �� Run workflow** compile the project on Linux and Windows and run 50 policy/diagnostic checks. Download a `realme-privacy-guard-unsigned-*` artifact from a successful run for the APK, build hashes, and test results.
+Pushes to `main`, pull requests, and **Actions → Build → Run workflow** compile the project on Linux and Windows and run 50 policy/diagnostic checks. Download a `realme-privacy-guard-unsigned-*` artifact from a successful run for the APK, build hashes, and test results.
 
 **CI produces an unsigned verification APK. It is not directly installable and cannot directly replace an installed signed APK.** The workflow does not use/upload signing private keys or publish releases. Build locally with the original signing identity for an installable update; do not uninstall the existing app to bypass a certificate mismatch and lose its configuration.
 
@@ -188,7 +188,7 @@ Upgrades from early New XSharedPreferences builds need their old settings migrat
 
 Obfuscated SystemHelper and ad-adapter hooks use audited APK sizes as compatibility guards, not authenticity checks. Re-audit after system-component updates. CI checks do not replace device validation. Device logs, extracted system APKs, and signing materials are not published in this repository.
 
-## References / �ο�
+## References / 参考
 
 - [LSPosed API and preference-sharing documentation](https://github.com/LSPosed/LSPosed/wiki/Develop-Xposed-Modules-Using-Modern-Xposed-API)
 - [Using the Xposed Framework API](https://github.com/rovo89/XposedBridge/wiki/Using-the-Xposed-Framework-API)

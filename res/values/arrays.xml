@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string-array name="xposed_scope">
+    <item>com.mobiletools.systemhelper</item>
+    <item>com.coloros.regservice</item>
+    <item>com.oppo.ctautoregist</item>
+    <item>com.coloros.weather.service</item>
+    <item>com.nearme.instant.platform</item>
+    <item>com.oplus.safecenter</item>
+    <item>com.oplus.securitypermission</item>
+    <item>com.coloros.securityguard</item>
+    <item>com.oplus.statistics.rom</item>
+    <item>com.oplus.deepthinker</item>
+    <item>com.oplus.metis</item>
+    <item>com.oplus.obrain</item>
+    <item>com.oplus.onetrace</item>
+    <item>com.coloros.remoteguardservice</item>
+    <item>com.oplus.pantanal.ums</item>
+    <item>com.opos.ads</item>
+    <item>com.oplus.olc</item>
+  </string-array>
+</resources>

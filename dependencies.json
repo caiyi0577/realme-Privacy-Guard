@@ -1,0 +1,9 @@
+{
+  "xposed_api": {
+    "coordinate": "de.robv.android.xposed:api:82",
+    "upstream": "https://github.com/rovo89/XposedBridge",
+    "download_url": "https://repository-cdn.liferay.com/nexus/content/repositories/gradle-plugins/de/robv/android/xposed/api/82/api-82.jar",
+    "sha256": "f48c635f1c7469fdec0e00ad2ea0b7a6b2f5b55065784a35b7ca3a84615e8e25",
+    "scope": "compile-only"
+  }
+}
