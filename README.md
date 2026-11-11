@@ -1,10 +1,10 @@
 # Realme Privacy Guard / 真我隐私卫士
 
-> **签名上架包 / Signed public build:** [1.2.0 APK](https://github.com/caiyi0577/realme-Privacy-Guard/releases/tag/8-1.2.0) · [独立分支 / Source branch](https://github.com/caiyi0577/realme-Privacy-Guard/tree/lsposed-release)
+> **LSPosed 官方模块仓库 / Official module repository:** [1.2.0 签名 APK / Signed APK](https://github.com/Xposed-Modules-Repo/io.github.caiyi0577.rpg/releases/tag/8-1.2.0) · [模块说明 / Module listing](https://github.com/Xposed-Modules-Repo/io.github.caiyi0577.rpg) · [独立分支 / Source branch](https://github.com/caiyi0577/realme-Privacy-Guard/tree/lsposed-release)
 >
-> 上架版包名为 `io.github.caiyi0577.rpg`，是独立应用，不能覆盖本分支的旧包 `com.caiyi.rpg`。请先停用旧模块，再启用上架版。LSPosed 官方索引收录尚未完成。
+> 上架版包名为 `io.github.caiyi0577.rpg`，是独立应用，不能覆盖本分支的旧包 `com.caiyi.rpg`。请先停用旧模块，再启用上架版。官方模块仓库中的说明与签名 APK 已发布；LSPosed 应用和网站索引正在等待刷新。
 >
-> The public build uses the separate `io.github.caiyi0577.rpg` application ID. It cannot update this branch's legacy `com.caiyi.rpg` package in place. Disable the old module before enabling the new one. Official LSPosed indexing is not yet complete.
+> The public build uses the separate `io.github.caiyi0577.rpg` application ID. It cannot update this branch's legacy `com.caiyi.rpg` package in place. Disable the old module before enabling the new one. The listing and signed APK are published in the official module repository; the LSPosed app/website index refresh is pending.
 
 [![Build](https://github.com/caiyi0577/realme-Privacy-Guard/actions/workflows/build.yml/badge.svg)](https://github.com/caiyi0577/realme-Privacy-Guard/actions/workflows/build.yml)
 
